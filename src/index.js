@@ -1,3 +1,3 @@
 import store from "./customStore"
 
-console.log(store.getState)
+console.log(store.getState())
