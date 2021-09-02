@@ -8,9 +8,11 @@ store.subscribe(()=>{
 })
 
 store.subscribe(()=>console.log("hello"))
-store.dispatch(actions.bugAdded("bug 1"));
+store.dispatch(actions.bugAdded({description: "bug 1"}));
 
 console.log(store.getState())
-store.dispatch(actions.bugAdded("bug 2"))
-store.dispatch(actions.bugAdded("another bug"))
+store.dispatch(actions.bugAdded({description: "bug 2"}))
+store.dispatch(actions.bugAdded({description:"another bug"}))
+store.dispatch(actions.bugResolved({id: 2}))
 console.log(store.getState())
+
