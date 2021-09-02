@@ -2,7 +2,7 @@ import reducer from "./Reducer";
 
 function createStore(reducer) {
   let state;
-  let listeners = [];
+  let listeners = []; // array of methods
 
   function getState() {
     //getter method
