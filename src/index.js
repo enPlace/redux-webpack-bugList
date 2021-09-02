@@ -6,6 +6,7 @@ const store = configureStore()
 store.subscribe(()=>{
     console.log("store changed!")
 })
+
 store.subscribe(()=>console.log("hello"))
 store.dispatch(actions.bugAdded("bug 1"));
 
