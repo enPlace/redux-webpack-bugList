@@ -1,4 +1,4 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createAction, createReducer, createSlice } from "@reduxjs/toolkit";
 
 const action = createAction("BugAdded");
 console.log(action({ id: 1, description: "What what" }));
@@ -10,7 +10,6 @@ export const bugResolved = createAction("bugResolved");
 
 // Reducer
 let lastId = 0;
-
 export default createReducer([], {
   //key:value
   //actions:functions event =>event hdescripti…alse}andler
