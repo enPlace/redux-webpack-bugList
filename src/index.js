@@ -1,8 +1,9 @@
-import configureStore from "./store/configureStore";
+import store from "./store/configureStore";
 import { bugResolved, bugRemoved, bugAdded } from "./store/bugs";
+import { projectAdded } from "./store/projects"
 
-const store = configureStore();
 
+store.dispatch(projectAdded({name: "Project 1"}))
 store.subscribe(() => {
   console.log("store changed!");
 });

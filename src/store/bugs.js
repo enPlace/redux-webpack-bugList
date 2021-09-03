@@ -32,7 +32,6 @@ actions: {bugAdded: ƒ, bugRemoved: ƒ, bugResolved: ƒ}
 caseReducers: {bugAdded: ƒ, bugRemoved: ƒ, bugResolved: ƒ}
 name: "bugs"
 reducer: ƒ (state, action) 
-
 */
 
 //Need to export actions and reducer
