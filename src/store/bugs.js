@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createSelector } from "reselect"
+import { createSelector } from "reselect";
 
 let lastId = 0;
 const slice = createSlice({
@@ -21,6 +21,13 @@ const slice = createSlice({
         bug.id === action.payload.id ? (bug.resolved = true) : bug
       );
     },
+    bugAssigned: (state, action) => {
+      state.map((bug) =>
+        bug.id === action.payload.id
+          ? (bug.teamMemberId = action.payload.teamMemberId)
+          : bug
+      );
+    },
   },
 });
 
@@ -36,12 +43,15 @@ reducer: ƒ (state, action)
 */
 
 //Need to export actions and reducer
-export const { bugAdded, bugRemoved, bugResolved } = slice.actions;
+export const { bugAdded, bugRemoved, bugResolved, bugAssigned } = slice.actions;
 export const unresolvedBugs = createSelector(
-  state => state.entities.bugs, 
-  bugs => bugs.filter( bug => !bug.resolved)
-)
+  (state) => state.entities.bugs,
+  (bugs) => bugs.filter((bug) => !bug.resolved)
+);
+export const bugsByUser = (teamMemberId) =>
+  createSelector(
+    (state) => state.entities.bugs,
+    (bugs) => bugs.filter((bug) => bug.teamMemberId === teamMemberId)
+  );
 
 export default slice.reducer;
-
-
